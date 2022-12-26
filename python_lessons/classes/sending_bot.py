@@ -1,11 +1,15 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 URL = 'https://api.telegram.org/bot'
 
 METHOD_getUpdates = '/getUpdates'
 
 METHOD_send_message = '/sendMessage'
-TOKEN = '5682038187:AAHvMAJdh2_N3b3u91bFR04IJ00poZwNPAg'
+TOKEN = os.getenv("TOKEN")
 
 Updates = requests.get(URL+TOKEN+METHOD_getUpdates).json()
 chat_id = Updates["result"][0]["message"]["chat"]["id"]
