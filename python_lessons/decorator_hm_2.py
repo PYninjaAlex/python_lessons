@@ -33,14 +33,14 @@ def selectionSort(arr):
       newArr.append(arr.pop(smallest))
   return newArr
 
-@timer
+
 def quicksort(array):
   if len(array) < 2:
     # базовый случай, массивы с 0 или 1 элементом уже "отсортированы"
     return array
   else:
     # рекурсивный случай
-    pivot = array[len(array) // 2] # индекс середины массива
+    pivot = array[len(array) // 2]  # индекс середины массива
     # подмассив всех элементов, меньших опорного
     less = [i for i in array[1:] if i <= pivot]
     # подмассив всех элементов больше, чем опорный
@@ -48,7 +48,11 @@ def quicksort(array):
     return quicksort(less) + [pivot] + quicksort(greater)
 
 
+@timer
+def callquicksort(array):
+  quicksort(array)
+
 lst1 = [randint(0, 1000) for i in range(1000)]
 lst2 = [randint(0, 1000) for i in range(1000)]
 
-print(selectionSort(lst1),'\n\t',quicksort(lst2))
+print(selectionSort(lst1),'\n\t',callquicksort(lst2))
