@@ -50,9 +50,9 @@ def quicksort(array):
 
 @timer
 def callquicksort(array):
-  quicksort(array)
+  return quicksort(array)
 
 lst1 = [randint(0, 1000) for i in range(1000)]
 lst2 = [randint(0, 1000) for i in range(1000)]
 
-print(selectionSort(lst1),'\n\t',callquicksort(lst2))
+print(selectionSort(lst1),'\n',callquicksort(lst2))
