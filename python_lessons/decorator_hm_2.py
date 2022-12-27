@@ -40,7 +40,7 @@ def quicksort(array):
     return array
   else:
     # рекурсивный случай
-    pivot = array[len(array) // 2]
+    pivot = array[len(array) // 2] # индекс серединны массива
     # подмассив всех элементов, меньших опорного
     less = [i for i in array[1:] if i <= pivot]
     # подмассив всех элементов больше, чем опорный
