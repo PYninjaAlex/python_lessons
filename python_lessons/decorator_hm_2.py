@@ -1,5 +1,6 @@
 import time
 from random import randint
+
 def timer(func):
   def wrapper(arr):
     start = time.process_time()
@@ -8,8 +9,6 @@ def timer(func):
     print(f'{func.__name__}\n\t start: {start};\n end: {end};\n different: {end - start}')
     return res
   return wrapper
-
-
 
 def findSmallest(arr):
     # Сохраняет наименьшее значение
@@ -33,7 +32,6 @@ def selectionSort(arr):
       newArr.append(arr.pop(smallest))
   return newArr
 
-
 def quicksort(array):
   if len(array) < 2:
     # базовый случай, массивы с 0 или 1 элементом уже "отсортированы"
@@ -46,7 +44,6 @@ def quicksort(array):
     # подмассив всех элементов больше, чем опорный
     greater = [i for i in array[1:] if i > pivot]
     return quicksort(less) + [pivot] + quicksort(greater)
-
 
 @timer
 def callquicksort(array):
