@@ -5,7 +5,7 @@ def timer(func):
     start = time.process_time()
     res = func(arr)
     end = time.process_time()
-    print(f'start: {start};\n end: {end};\n different: {end - start}')
+    print(f'{func.__name__}\n\t start: {start};\n end: {end};\n different: {end - start}')
     return res
   return wrapper
 
@@ -48,6 +48,7 @@ def quicksort(array):
     return quicksort(less) + [pivot] + quicksort(greater)
 
 
-lst = [randint(0, 1000) for i in range(10000)]
+lst1 = [randint(0, 1000) for i in range(1000)]
+lst2 = [randint(0, 1000) for i in range(1000)]
 
-print(selectionSort(lst),'\n\t',quicksort(lst))
+print(selectionSort(lst1),'\n\t',quicksort(lst2))
