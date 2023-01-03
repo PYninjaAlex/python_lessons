@@ -8,7 +8,7 @@ def find_short(s):
 
     return smallest
 
-print(find_short("bitcoin take over the world maybe who knows perhaps"))
+
 
 
 def controller(events):
@@ -33,11 +33,32 @@ def controller(events):
         output += str(currentOpen)
     return output
 
-print(controller('..P...O...'))
+
 
 def sum_no_duplicates(l):
     s = set(l)
     es = sum(l) - sum(s)
     return sum(s) - es
 
-print(sum_no_duplicates([1, 1, 2, 3]))
+
+
+
+def invert(lst):
+    output = list()
+    if len(lst) == 0:
+        return lst
+    else:
+        for i in lst:
+            if i > 0:
+                i -= i * 2
+                output.append(i)
+            else:
+                abs_x = abs(i)
+                output.append(abs_x)
+        return output
+
+
+# print(find_short("bitcoin take over the world maybe who knows perhaps"))
+# print(controller('..P...O...'))
+# print(sum_no_duplicates([1, 1, 2, 3]))
+# print(invert([1,-2,3,-4,5]))
