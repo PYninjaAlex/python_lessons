@@ -20,4 +20,7 @@ def my_search_2():
 
     res = re.findall(r'А[а-я][нл]а', s4)
 
-    print(res)
+    return res
+
+my_search()
+print(my_search_2())
