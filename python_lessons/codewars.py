@@ -70,6 +70,16 @@ def add_length(str_):
 def past(h, m, s):
     return ((h * 3600) + (m * 60) + s) * 1000
 
+def collatz(n):
+    output_lst = []
+    while n > 1:
+        output_lst.append(n)
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = n * 3 + 1
+    return len(output_lst) + 1
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -77,3 +87,4 @@ def past(h, m, s):
 # print(repeat_str('abs'))
 # print(add_length('y'))
 # print(past(0, 1, 1))
+# print(collatz(561))
