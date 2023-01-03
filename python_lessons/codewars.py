@@ -80,6 +80,13 @@ def collatz(n):
             n = n * 3 + 1
     return len(output_lst) + 1
 
+def solution(text, ending):
+    l = len(ending)
+    if text[:-l] + ending == text:
+        return True
+    else:
+        return False
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -88,3 +95,4 @@ def collatz(n):
 # print(add_length('y'))
 # print(past(0, 1, 1))
 # print(collatz(561))
+# print(solution('abc', 'bc'))
