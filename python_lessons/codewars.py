@@ -60,9 +60,20 @@ def invert(lst):
 def repeat_str(repeat, string):
     return string * repeat
 
+def add_length(str_):
+    output = []
+    split_str = str_.split()
+    for i in split_str:
+        output.append(f"{i} {len(i)}")
+    return output
+
+def past(h, m, s):
+    return ((h * 3600) + (m * 60) + s) * 1000
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
 # print(invert([1,-2,3,-4,5]))
 # print(repeat_str('abs'))
+# print(add_length('y'))
+# print(past(0, 1, 1))
