@@ -57,8 +57,12 @@ def invert(lst):
                 output.append(abs_x)
         return output
 
+def repeat_str(repeat, string):
+    return string * repeat
+
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
 # print(invert([1,-2,3,-4,5]))
+# print(repeat_str('abs'))
