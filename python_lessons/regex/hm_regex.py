@@ -6,7 +6,7 @@ s1 = 'Hello, World!'
 
 def date(str):
 
-    result = re.findall(r'[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9]', str)
+    result = re.findall(r'[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9][0-9][0-9]', str)
     return result
 
 print(date(date1))
