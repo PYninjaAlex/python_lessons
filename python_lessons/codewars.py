@@ -87,11 +87,14 @@ def solution(text, ending):
     else:
         return False
 
-def powers_of_two(n):
+def powers_of_two_1(n):
     output = []
     for i in range(n+1):
         output.append(2 ** i)
     return output
+
+def powers_of_two_2(n):
+    return [2 ** x for x in range(n+1)]
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -102,4 +105,5 @@ def powers_of_two(n):
 # print(past(0, 1, 1))
 # print(collatz(561))
 # print(solution('abc', 'bc'))
-# print(powers_of_two(4))
+# print(powers_of_two_1(4))
+# print(powers_of_two_2(4))
