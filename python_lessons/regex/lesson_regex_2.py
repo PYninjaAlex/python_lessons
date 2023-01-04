@@ -7,6 +7,9 @@ data2 = 'C:\\Users\\Document\\'
 
 str_email = '''abs123@gmail.com
         dfe456@apple.com'''
+
+ph_numbers = '''+7-912-345-67-89
+    8-912-345-67-89'''
 def spec_symbols(str):
 
     result_1 = re.findall(r'(0[1-9]|[12][\d]|3[01])\.(0[1-9]|1[0-2])\.([12][09][\d][\d])', str)
@@ -16,21 +19,20 @@ def spec_symbols(str):
     result_5 = re.findall(r'C:\\Users\\', str)
     return result_1, result_2, result_3, result_4, result_5
 
-def chech_email(email):
+def check_email(email):
 
     res = re.findall(r'\w+@\w+\.\w+', email)
     return res
 
 
-def check_phone_number():
-    s_numbers = '''+7-912-345-67-89
-    8-912-345-67-89'''
-    result = re.findall(r'(\+7|8)-(9\d{2})-(\d{3})-(\d{2})-(\d{2})', s_numbers)
-    print(result)
+def check_phone_number(phone_number):
+
+    result = re.findall(r'(\+7|8)-(9\d{2})-(\d{3})-(\d{2})-(\d{2})', phone_number)
+    return result
 
 
 print(spec_symbols(data2))
 print(spec_symbols(data))
 print(spec_symbols(my_str))
-print(chech_email(str_email))
-check_phone_number()
+print(check_email(str_email))
+print(check_phone_number(ph_numbers))
