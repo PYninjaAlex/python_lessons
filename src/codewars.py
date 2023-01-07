@@ -104,6 +104,45 @@ def consonant_count(string):
             output += 1
     return output
 
+def high(x):
+    spl_x = x.lower().split()
+    a = 0
+    lst = []
+    bin = {}
+    bin['A'] = 1
+    bin['B'] = 2
+    bin['C'] = 3
+    bin['D'] = 4
+    bin['E'] = 5
+    bin['F'] = 6
+    bin['G'] = 7
+    bin['H'] = 8
+    bin['I'] = 9
+    bin['J'] = 10
+    bin['K'] = 11
+    bin['L'] = 12
+    bin['M'] = 13
+    bin['N'] = 14
+    bin['O'] = 15
+    bin['P'] = 16
+    bin['Q'] = 17
+    bin['R'] = 18
+    bin['S'] = 19
+    bin['T'] = 20
+    bin['U'] = 21
+    bin['V'] = 22
+    bin['W'] = 23
+    bin['X'] = 24
+    bin['Y'] = 25
+    bin['Z'] = 26
+    for i in spl_x:
+        for j in i:
+            a += bin[j.upper()]
+        lst.append(a)
+        a = 0
+    output = spl_x[lst.index(max(lst))]
+    return output
+
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -117,3 +156,4 @@ def consonant_count(string):
 # print(powers_of_two_1(4))
 # print(powers_of_two_2(4))
 # print(consonant_count('Hello, world!'))
+print(high('man i need a taxi up to ubud'))
