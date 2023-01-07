@@ -96,6 +96,15 @@ def powers_of_two_1(n):
 def powers_of_two_2(n):
     return [2 ** x for x in range(n+1)]
 
+def consonant_count(string):
+    output = 0
+    vowels = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']
+    for i in string:
+        if i.upper() in vowels:
+            output += 1
+    return output
+
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -107,3 +116,4 @@ def powers_of_two_2(n):
 # print(solution('abc', 'bc'))
 # print(powers_of_two_1(4))
 # print(powers_of_two_2(4))
+# print(consonant_count('Hello, world!'))
