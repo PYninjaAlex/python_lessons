@@ -143,6 +143,15 @@ def high(x):
     output = spl_x[lst.index(max(lst))]
     return output
 
+def min_min_max(arr):
+    smallest = min(arr)
+    largest = max(arr)
+    for i in range(smallest+1, largest):
+        if i not in arr:
+            minimumAbsent = i
+            break
+    return [smallest, minimumAbsent, largest]
+
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -156,4 +165,5 @@ def high(x):
 # print(powers_of_two_1(4))
 # print(powers_of_two_2(4))
 # print(consonant_count('Hello, world!'))
-print(high('man i need a taxi up to ubud'))
+# print(high('man i need a taxi up to ubud'))
+# print(min_min_max([23, 4, 5, 80, 70, 68 ]))
