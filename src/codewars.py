@@ -186,7 +186,19 @@ def split_strings(s):
         s += '_'
         return app_lst(count, out, output, s)
 
-
+def procedure(i):
+    multiple = []
+    sums = []
+    obj = 0
+    for j in range(i, 100 + 1):
+        if j % i == 0:
+            multiple.append(j)
+    for k in multiple:
+        for object in str(k):
+            obj += int(object)
+        sums.append(obj)
+        obj = 0
+    return sum(sums)
 
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
@@ -205,3 +217,4 @@ def split_strings(s):
 # print(min_min_max([23, 4, 5, 80, 70, 68 ]))
 # print(count_consonants('Count my unique consonants!!'))
 # print(split_strings('asdfads'))
+# print(procedure(25))
