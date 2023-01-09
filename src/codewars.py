@@ -161,6 +161,35 @@ def count_consonants(text):
             output.add(i)
     return len(output)
 
+def split_strings(s):
+    out = ''
+    output = []
+    count = 0
+    if len(s) == 0:
+        return []
+    elif len(s) == 1:
+        return [s + '_']
+    elif len(s) % 2 == 0:
+        for i in s:
+            if len(out) < 3:
+                out += i
+                count += 1
+            if count == 2:
+                output.append(out)
+                out = ''
+                count = 0
+        return output
+    else:
+        s += '_'
+        for i in s:
+            if len(out) < 3:
+                out += i
+                count += 1
+            if count == 2:
+                output.append(out)
+                out = ''
+                count = 0
+        return output
 
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
@@ -178,3 +207,4 @@ def count_consonants(text):
 # print(high('man i need a taxi up to ubud'))
 # print(min_min_max([23, 4, 5, 80, 70, 68 ]))
 # print(count_consonants('Count my unique consonants!!'))
+print(split_strings('asdfads'))
