@@ -152,6 +152,16 @@ def min_min_max(arr):
             break
     return [smallest, minimumAbsent, largest]
 
+def count_consonants(text):
+    text_up = text.upper()
+    output = set()
+    vowels = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']
+    for i in text_up:
+        if i in vowels:
+            output.add(i)
+    return len(output)
+
+
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -167,3 +177,4 @@ def min_min_max(arr):
 # print(consonant_count('Hello, world!'))
 # print(high('man i need a taxi up to ubud'))
 # print(min_min_max([23, 4, 5, 80, 70, 68 ]))
+# print(count_consonants('Count my unique consonants!!'))
