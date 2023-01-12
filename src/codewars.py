@@ -216,6 +216,15 @@ def get_sum(a,b):
             output += i
         return output
 
+def digital_root(n):
+    output = 0
+    while n > 9:
+        for i in str(n):
+            output += int(i)
+        n = output
+        output = 0
+    return n
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -235,3 +244,4 @@ def get_sum(a,b):
 # print(procedure(25))
 # print(reverse_words("hello world!"))
 # print(get_sum(-50, 0))
+# print(digital_root(493193))
