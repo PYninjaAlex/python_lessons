@@ -200,6 +200,8 @@ def procedure(i):
         obj = 0
     return sum(sums)
 
+def reverse_words(str):
+    return " ".join(str.split()[::-1])
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -218,3 +220,4 @@ def procedure(i):
 # print(count_consonants('Count my unique consonants!!'))
 # print(split_strings('asdfads'))
 # print(procedure(25))
+# print(reverse_words("hello world!"))
