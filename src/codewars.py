@@ -203,6 +203,19 @@ def procedure(i):
 def reverse_words(str):
     return " ".join(str.split()[::-1])
 
+def get_sum(a,b):
+    output = 0
+    if a == b:
+        return a
+    elif a > b:
+        for i in range(b, a+1):
+            output += i
+        return output
+    else:
+        for i in range(a, b+1):
+            output += i
+        return output
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -221,3 +234,4 @@ def reverse_words(str):
 # print(split_strings('asdfads'))
 # print(procedure(25))
 # print(reverse_words("hello world!"))
+# print(get_sum(-50, 0))
