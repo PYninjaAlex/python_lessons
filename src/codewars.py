@@ -225,6 +225,18 @@ def digital_root(n):
         output = 0
     return n
 
+def find_uniq(arr):
+    i = arr[0]
+    for j in range(1, len(arr)):
+        if i == arr[j]:
+            continue
+        if i not in arr[1:]:
+            return i
+        else:
+            n = arr[j]
+            break
+    return n
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -245,3 +257,4 @@ def digital_root(n):
 # print(reverse_words("hello world!"))
 # print(get_sum(-50, 0))
 # print(digital_root(493193))
+# print(find_uniq([1, 0, 0, 0]))
