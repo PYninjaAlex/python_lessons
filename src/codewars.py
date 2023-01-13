@@ -237,6 +237,13 @@ def find_uniq(arr):
             break
     return n
 
+
+def find_smallest(numbers, to_return):
+    if to_return == 'index':
+        return numbers.index(min(numbers))
+    else:
+        return min(numbers)
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -258,3 +265,4 @@ def find_uniq(arr):
 # print(get_sum(-50, 0))
 # print(digital_root(493193))
 # print(find_uniq([1, 0, 0, 0]))
+# print(find_smallest([5,4,3,2,1],"value"))
