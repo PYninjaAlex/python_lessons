@@ -248,7 +248,15 @@ def arr_check(arr):
     for i in arr:
         if type(i) is not list:
             return False
-    return True
+    return
+
+def explode(arr):
+    if type(arr[0]) == int and type(arr[1]) == int:
+        return [arr] * (arr[0] + arr[1])
+    elif type(arr[0]) == int or type(arr[1]) == int:
+        return [arr] * arr[0] if type(arr[0]) == int else [arr] * arr[1]
+    else:
+        return 'Void!'
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -273,3 +281,4 @@ def arr_check(arr):
 # print(find_uniq([1, 0, 0, 0]))
 # print(find_smallest([5,4,3,2,1],"value"))
 # print(arr_check([[1], [2], [3]]))
+# print(explode([9, 3]))
