@@ -244,6 +244,12 @@ def find_smallest(numbers, to_return):
     else:
         return min(numbers)
 
+def arr_check(arr):
+    for i in arr:
+        if type(i) is not list:
+            return False
+    return True
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -266,3 +272,4 @@ def find_smallest(numbers, to_return):
 # print(digital_root(493193))
 # print(find_uniq([1, 0, 0, 0]))
 # print(find_smallest([5,4,3,2,1],"value"))
+# print(arr_check([[1], [2], [3]]))
