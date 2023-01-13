@@ -1,3 +1,4 @@
+import re
 def find_short(s):
     sp = s.split()
     smallest = len(sp[0])
@@ -7,8 +8,6 @@ def find_short(s):
             smallest = a
 
     return smallest
-
-
 
 
 def controller(events):
@@ -258,6 +257,9 @@ def explode(arr):
     else:
         return 'Void!'
 
+def date_checker(date):
+    return True if re.findall(r'\d{2}-\d{2}-\d{4}\s\d{2}:\d{2}', date) else False
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -282,3 +284,4 @@ def explode(arr):
 # print(find_smallest([5,4,3,2,1],"value"))
 # print(arr_check([[1], [2], [3]]))
 # print(explode([9, 3]))
+# print(date_checker('01-09-2016 01:20'))
