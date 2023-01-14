@@ -1,6 +1,7 @@
 import re
 from math import floor
 
+
 def find_short(s):
     sp = s.split()
     smallest = len(sp[0])
@@ -13,7 +14,7 @@ def find_short(s):
 
 
 def controller(events):
-    state = 2 # 0 opening, 1 closing, 2 not moving
+    state = 2  # 0 opening, 1 closing, 2 not moving
     currentOpen = 0
     output = ""
     pause = False
@@ -26,22 +27,19 @@ def controller(events):
             else:
                 pause = not pause
         elif events[i] == "O":
-            state = 1-state
+            state = 1 - state
         if state == 0 and not pause:
-            currentOpen = min(5, currentOpen+1)
+            currentOpen = min(5, currentOpen + 1)
         elif state == 1 and not pause:
-            currentOpen = max(0, currentOpen-1)
+            currentOpen = max(0, currentOpen - 1)
         output += str(currentOpen)
     return output
-
 
 
 def sum_no_duplicates(l):
     s = set(l)
     es = sum(l) - sum(s)
     return sum(s) - es
-
-
 
 
 def invert(lst):
@@ -58,8 +56,10 @@ def invert(lst):
                 output.append(abs_x)
         return output
 
+
 def repeat_str(repeat, string):
     return string * repeat
+
 
 def add_length(str_):
     output = []
@@ -68,8 +68,10 @@ def add_length(str_):
         output.append(f"{i} {len(i)}")
     return output
 
+
 def past(h, m, s):
     return ((h * 3600) + (m * 60) + s) * 1000
+
 
 def collatz(n):
     output_lst = []
@@ -81,6 +83,7 @@ def collatz(n):
             n = n * 3 + 1
     return len(output_lst) + 1
 
+
 def solution(text, ending):
     l = len(ending)
     if text[:-l] + ending == text:
@@ -88,14 +91,17 @@ def solution(text, ending):
     else:
         return False
 
+
 def powers_of_two_1(n):
     output = []
-    for i in range(n+1):
+    for i in range(n + 1):
         output.append(2 ** i)
     return output
 
+
 def powers_of_two_2(n):
-    return [2 ** x for x in range(n+1)]
+    return [2 ** x for x in range(n + 1)]
+
 
 def consonant_count(string):
     output = 0
@@ -104,6 +110,7 @@ def consonant_count(string):
         if i.upper() in vowels:
             output += 1
     return output
+
 
 def high(x):
     spl_x = x.lower().split()
@@ -144,14 +151,16 @@ def high(x):
     output = spl_x[lst.index(max(lst))]
     return output
 
+
 def min_min_max(arr):
     smallest = min(arr)
     largest = max(arr)
-    for i in range(smallest+1, largest):
+    for i in range(smallest + 1, largest):
         if i not in arr:
             minimumAbsent = i
             break
     return [smallest, minimumAbsent, largest]
+
 
 def count_consonants(text):
     text_up = text.upper()
@@ -161,6 +170,7 @@ def count_consonants(text):
         if i in vowels:
             output.add(i)
     return len(output)
+
 
 def app_lst(count, out, output, s):
     for i in s:
@@ -172,6 +182,7 @@ def app_lst(count, out, output, s):
             out = ''
             count = 0
     return output
+
 
 def split_strings(s):
     out = ''
@@ -187,6 +198,7 @@ def split_strings(s):
         s += '_'
         return app_lst(count, out, output, s)
 
+
 def procedure(i):
     multiple = []
     sums = []
@@ -201,21 +213,24 @@ def procedure(i):
         obj = 0
     return sum(sums)
 
+
 def reverse_words(str):
     return " ".join(str.split()[::-1])
 
-def get_sum(a,b):
+
+def get_sum(a, b):
     output = 0
     if a == b:
         return a
     elif a > b:
-        for i in range(b, a+1):
+        for i in range(b, a + 1):
             output += i
         return output
     else:
-        for i in range(a, b+1):
+        for i in range(a, b + 1):
             output += i
         return output
+
 
 def digital_root(n):
     output = 0
@@ -225,6 +240,7 @@ def digital_root(n):
         n = output
         output = 0
     return n
+
 
 def find_uniq(arr):
     i = arr[0]
@@ -245,11 +261,13 @@ def find_smallest(numbers, to_return):
     else:
         return min(numbers)
 
+
 def arr_check(arr):
     for i in arr:
         if type(i) is not list:
             return False
     return
+
 
 def explode(arr):
     if type(arr[0]) == int and type(arr[1]) == int:
@@ -259,14 +277,47 @@ def explode(arr):
     else:
         return 'Void!'
 
+
 def date_checker(date):
     return True if re.findall(r'\d{2}-\d{2}-\d{4}\s\d{2}:\d{2}', date) else False
+
 
 def litres(time):
     output = 0
     for i in range(floor(time)):
         output += 0.5
     return floor(output)
+
+
+def reverse_letter(string):
+    return ''.join([x for x in string if x in re.sub("[^A-Za-z]", "", string)])[::-1]
+
+
+def cakes(recipe, available):
+    pre_output = set()
+    output = []
+    list_recipe = list(recipe.keys())
+    list_awailable = list(available.keys())
+    if  [x for x in list_recipe if x not in list_awailable] != []:
+        return 0
+    elif len(list_awailable) < len(list_recipe):
+        return 0
+    else:
+        for i in list_awailable:
+            if i in list_recipe:
+                if available[i] // recipe[i] != 0:
+                    pre_output.add(available[i] // recipe[i])
+                else:
+                    return 0
+            else:
+                continue
+        for x in pre_output:
+            if output == []:
+                output.append(x)
+            if x not in output and x < max(output):
+                output.append(x)
+        return min(output)
+
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
@@ -294,3 +345,7 @@ def litres(time):
 # print(explode([9, 3]))
 # print(date_checker('01-09-2016 01:20'))
 # print(litres(11.8))
+# print(reverse_letter("hello@world!)"))
+# print(cakes(recipe={'crumbles': 24, 'sugar': 89, 'nuts': 63},
+#             available={'sugar': 9449, 'flour': 5102, 'cocoa': 9582, 'butter': 1443, 'crumbles': 6454, 'eggs': 245,
+#                        'chocolate': 8204, 'pears': 8096, 'cream': 3821, 'milk': 9915}))
