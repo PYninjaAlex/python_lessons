@@ -1,4 +1,6 @@
 import re
+from math import floor
+
 def find_short(s):
     sp = s.split()
     smallest = len(sp[0])
@@ -260,6 +262,12 @@ def explode(arr):
 def date_checker(date):
     return True if re.findall(r'\d{2}-\d{2}-\d{4}\s\d{2}:\d{2}', date) else False
 
+def litres(time):
+    output = 0
+    for i in range(floor(time)):
+        output += 0.5
+    return floor(output)
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
@@ -285,3 +293,4 @@ def date_checker(date):
 # print(arr_check([[1], [2], [3]]))
 # print(explode([9, 3]))
 # print(date_checker('01-09-2016 01:20'))
+# print(litres(11.8))
