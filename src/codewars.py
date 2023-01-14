@@ -298,7 +298,7 @@ def cakes(recipe, available):
     output = []
     list_recipe = list(recipe.keys())
     list_awailable = list(available.keys())
-    if  [x for x in list_recipe if x not in list_awailable] != []:
+    if [x for x in list_recipe if x not in list_awailable] != []:
         return 0
     elif len(list_awailable) < len(list_recipe):
         return 0
@@ -317,7 +317,6 @@ def cakes(recipe, available):
             if x not in output and x < max(output):
                 output.append(x)
         return min(output)
-
 
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
