@@ -318,6 +318,51 @@ def cakes(recipe, available):
                 output.append(x)
         return min(output)
 
+
+# def sum_arrays(arrays, shift):
+#     output = []
+#     var_list = []
+#     variable = 0
+#     if shift == 0:
+#         for i in arrays:
+#             for j in i:
+#                 variable += j
+#                 var_list.append(variable)
+#                 variable = 0
+#         half = len(var_list) // 2
+#         first_half = var_list[:half]
+#         second_half = var_list[half:]
+#         for i in range(half):
+#             output.append(first_half[i] + second_half[i])
+#     else:
+#         for i in range(shift):
+#             output.append(arrays[0][i])
+#         for i in arrays:
+#             count = 0
+#             for j in i:
+#                 if count != shift:
+#                     count += 1
+#                     continue
+#                 variable += j
+#                 var_list.append(variable)
+#                 variable = 0
+#         half = len(var_list) // 2
+#         first_half = var_list[:half]
+#         second_half = var_list[half:]
+#         for i in range(half):
+#             output.append(first_half[i] + second_half[i])
+#                 for j in i:
+#                     variable += j
+#                     var_list.append(variable)
+#                     variable = 0
+#             half = len(var_list) // 2
+#             first_half = var_list[:half]
+#             second_half = var_list[half:]
+#         for i in range(half):
+#             output.append(first_half[i] + second_half[i])
+#     return output
+
+
 # print(find_short("bitcoin take over the world maybe who knows perhaps"))
 # print(controller('..P...O...'))
 # print(sum_no_duplicates([1, 1, 2, 3]))
