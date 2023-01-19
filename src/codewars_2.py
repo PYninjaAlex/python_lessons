@@ -1,6 +1,3 @@
-import random
-
-
 def trim(phrase, size):
     if len(phrase) <= size:
         return phrase
