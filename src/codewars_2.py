@@ -45,7 +45,6 @@ def is_square(n: int) -> True or False:
     else:
         return False
 
-
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
