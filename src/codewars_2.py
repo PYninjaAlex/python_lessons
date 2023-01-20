@@ -45,7 +45,22 @@ def is_square(n: int) -> True or False:
     else:
         return False
 
+
+def likes(names: list) -> str:
+    if names == []:
+        return 'no one likes this'
+    elif len(names) == 1:
+        return f'{names[0]} likes this'
+    elif len(names) == 2:
+        return f'{names[0]} and {names[1]} like this'
+    elif len(names) == 3:
+        return f'{names[0]}, {names[1]} and {names[2]} like this'
+    elif len(names) >= 4:
+        return f'{names[0]}, {names[1]} and {len(names) - 2} others like this'
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
 # print(is_square(26))
+# print(likes(['Alex', 'Jacob', 'Mark', 'Max']))
