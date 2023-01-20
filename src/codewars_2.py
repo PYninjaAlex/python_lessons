@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def trim(phrase, size):
     if len(phrase) <= size:
         return phrase
@@ -30,6 +33,20 @@ def unique_in_order(sequence):
                     output.append(sequence[i])
         return output
 
+
+def is_square(n: int) -> True or False:
+    if n >= 0:
+        if n == 0:
+            return True
+        elif sqrt(n) == int(sqrt(n)):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
+# print(is_square(26))
