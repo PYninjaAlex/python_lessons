@@ -1,4 +1,5 @@
 from math import sqrt
+import re
 
 
 def trim(phrase, size):
@@ -57,6 +58,16 @@ def likes(names: list) -> str:
         return f'{names[0]}, {names[1]} and {names[2]} like this'
     elif len(names) >= 4:
         return f'{names[0]}, {names[1]} and {len(names) - 2} others like this'
+
+
+def alias_gen(f_name: str, l_name: str) -> str:
+    if f_name[0].isdigit() or l_name[0].isdigit():
+        return 'Your name must start with a letter from A - Z.'
+    else:
+        '''f_name and s_name are uploaded dicts in cata
+            that why there is the syntax_error here.'''
+        return FIRST_NAME[f_name[0].upper()] + ' ' + SURNAME[l_name[0].upper()]
+
 
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
