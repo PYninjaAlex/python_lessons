@@ -1,5 +1,4 @@
 from math import sqrt
-import re
 
 
 def trim(phrase, size):
@@ -67,7 +66,6 @@ def alias_gen(f_name: str, l_name: str) -> str:
         '''f_name and s_name are uploaded dicts in cata
             that why there is the syntax_error here.'''
         return FIRST_NAME[f_name[0].upper()] + ' ' + SURNAME[l_name[0].upper()]
-
 
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
