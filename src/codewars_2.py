@@ -58,7 +58,6 @@ def likes(names: list) -> str:
     elif len(names) >= 4:
         return f'{names[0]}, {names[1]} and {len(names) - 2} others like this'
 
-
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
