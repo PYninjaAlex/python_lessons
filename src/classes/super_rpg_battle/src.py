@@ -83,7 +83,7 @@ def game(player, monster, test_player, test_monster):
     '''Запук игры.'''
     while player.hp > 0 and monster.hp > 0:
         chance = random.randint(1, 2)
-        def chance_func(chance_arg):
+        def chance_func():
             '''Основная функиция игры.'''
             if chance == 1:
                 print("Вы будете вытягивать жребий...")
@@ -104,7 +104,7 @@ def game(player, monster, test_player, test_monster):
                 if choice == 1:
                     player.attack(monster, player)
                 elif choice == 2:
-                    player.healing(count_player, test_player, player)
+                    player.healing(count_player, test_player, player, player)
                 else:
                     print("Варианта только два!")
                     choice = int(input(
@@ -112,7 +112,7 @@ def game(player, monster, test_player, test_monster):
                     if choice == 1:
                         player.attack(monster, player)
                     elif choice == 2:
-                        player.healing(count_player, test_player, player)
+                        player.healing(count_player, test_player, player, player)
             else:
                 print("Вы будете вытягивать жребий...")
                 time.sleep(0.5)
@@ -126,8 +126,8 @@ def game(player, monster, test_player, test_monster):
                 if choice == 1:
                     monster.attack(player, monster)
                 else:
-                    monster.healing(count_monster, test_monster, monster)
-        chance_func(chance)
+                    monster.healing(count_monster, test_monster, monster, player)
+        chance_func()
 
 
 def finish(monster, player):
