@@ -24,7 +24,7 @@ class Creature:
         enemy.hp -= self.power_attack
         time.sleep(2)
         print(f'Количество здоровья {enemy.name} после удара: {enemy.hp}')
-        time.sleep(2)
+        time.sleep(3)
         os.system("cls")
 
     def healing(self, count, test, hero, player):
@@ -35,7 +35,7 @@ class Creature:
                 print(f"Вы лечитесь!")
             else:
                 print(f'{hero.name} решает полечиться!')
-            time.sleep(2)
+            time.sleep(3)
             hero.hp += 10
             print(f'Количество здоровья {hero.name} после лечения: {hero.hp}')
         elif hero.hp == test:
@@ -68,6 +68,20 @@ class Monster(Creature):
         В разработке...'''
     pass
 
+def welcome():
+    '''Функция добро пожаловать.'''
+    print("Добро пожаловать в игру!")
+    time.sleep(1)
+    print(f"Сегодня, {name_player}, тебе придётся сразиться с {monster.name}!\nЖелаю тебе удачи!")
+    time.sleep(2)
+    print("1")
+    time.sleep(1)
+    print("2")
+    time.sleep(1)
+    print("3")
+    time.sleep(0.5)
+    print("К бою!")
+    time.sleep(1)
 
 name_player = input("Как тебя зовут? ")  # Имя героя
 player = Hero(name_player, random.randint(40, 50), 10, 10)  # Создаём игрока
@@ -81,6 +95,7 @@ test_monster = monster.hp  # Начальное здоровье монстра 
 def asking():
     '''Принимаем главную информацию.
         И выводим её.'''
+    os.system('cls')
     print(f'Имя вашего героя: {player.name}')
     print(f'Имя монстра: {monster.name}')
     time.sleep(2)
@@ -159,6 +174,7 @@ def finish(monster, player):
         print("Вы проиграли. В следующий раз повезёт!")
 
 
+welcome()
 asking()
 game(player, monster, test_player, test_monster)
 finish(monster, player)
