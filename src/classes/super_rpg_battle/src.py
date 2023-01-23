@@ -1,20 +1,21 @@
 import random
 import time
 import os
+from dataclasses import dataclass
 
-count_player = 0
-count_monster = 0
-monster_names = ('Dragon', 'Ork', 'The Dead', "Puss in boots", "Shrek")
+count_player = 0  # Проверка попыток лечения игрока
+count_monster = 0  # Проверка попыток лечения монстра
+monster_names = (
+    'Dragon', 'Ork', 'The Dead', "Puss in boots", "Shrek")  # Кортеж который содержит в себе все ииена монстров
 
 
+@dataclass
 class Creature:
     '''Родительский класс сушество.'''
-
-    def __init__(self, name, hp_player, power_attack_player, heal_player):
-        self.name = name
-        self.hp = hp_player
-        self.power_attack = power_attack_player
-        self.heal = heal_player
+    name: str
+    hp: int
+    power_attack: int
+    heal_player: int
 
     def attack(self, enemy, player):
         '''Персонаж атакует.'''
@@ -28,7 +29,7 @@ class Creature:
 
     def healing(self, count, test, hero, player):
         '''Персонаж лечится.'''
-        if count != 2 and hero.hp != test:
+        if count <= 2 and hero.hp != test:
             print(f'Количество здоровья {hero.name} до лечения: {hero.hp}')
             if hero.name == player.name:
                 print(f"Вы лечитесь!")
@@ -37,9 +38,9 @@ class Creature:
             time.sleep(2)
             hero.hp += 10
             print(f'Количество здоровья {hero.name} после лечения: {hero.hp}')
-        elif count != 2:
+        elif hero.hp == test:
             print(
-                "Почему",hero.name,
+                "Почему", hero.name,
                 "меня не послушали? Вы что думали что максивальное здоровье увеличится? В следующий раз будешь лучше меня слушать!")
         else:
             print("Попытки лечения кончились! Лечиться больше нельзя!")
@@ -57,23 +58,29 @@ class Creature:
 
 
 class Hero(Creature):
-    '''Дочерний класс нашего героя.'''
+    '''Дочерний класс нашего героя.
+        В разработке...'''
     pass
 
 
 class Monster(Creature):
-    '''Дочерний класс монстра.'''
+    '''Дочерний класс монстра.
+        В разработке...'''
     pass
 
 
-name_player = input("Как тебя зовут? ")
-player = Hero(name_player, random.randint(40, 50), 10, 10)
-monster = Monster(monster_names[random.randint(0, len(monster_names) - 1)], random.randint(40, 60), 10, 0)
+name_player = input("Как тебя зовут? ")  # Имя героя
+player = Hero(name_player, random.randint(40, 50), 10, 10)  # Создаём игрока
+monster = Monster(monster_names[random.randint(0, len(monster_names) - 1)], random.randint(40, 60), 10,
+                  0)  # Создаём монстра
 
-test_player = player.hp
-test_monster = monster.hp
+test_player = player.hp  # Начальное здоровье игрока или маскимальное здоровье игрока
+test_monster = monster.hp  # Начальное здоровье монстра или маскимальное здоровье монстра
+
+
 def asking():
-    '''Принимаем главную информацию.'''
+    '''Принимаем главную информацию.
+        И выводим её.'''
     print(f'Имя вашего героя: {player.name}')
     print(f'Имя монстра: {monster.name}')
     time.sleep(2)
@@ -81,10 +88,12 @@ def asking():
 
 def game(player, monster, test_player, test_monster):
     '''Запук игры.'''
-    while player.hp > 0 and monster.hp > 0:
-        chance = random.randint(1, 2)
+    while player.hp > 0 and monster.hp > 0:  # Пока кто-то не умер.
+        chance = random.randint(1, 2)  # Шанс это жребий.
+
         def chance_func():
-            '''Основная функиция игры.'''
+            '''Основная функиция игры.
+                Делаем проверку на жребий.'''
             if chance == 1:
                 print("Вы будете вытягивать жребий...")
                 time.sleep(0.5)
@@ -94,17 +103,20 @@ def game(player, monster, test_player, test_monster):
                 time.sleep(0.5)
                 print("3...")
                 print("Вы вытянули жребий! Поздравляю вы играете первым!")
+                '''Обрабатываем ошибки.'''
                 try:
-                    choice = int(input(
+                    choice = int(input(  # Выбор игрока
                         "Что вы хотите сделать?\t\n1.Атакавать\n2.Лечиться (не стоит лечиться если у вас и так полное здоровье и ещё нельзя лечиться более двух раз имей ввиду говорю один раз!)\n"))
                 except Exception:
                     print("Введите число!")
                     choice = int(input(
                         "Что вы хотите сделать?\t\n1.Атакавать\n2.Лечиться (не стоит лечиться если у вас и так полное здоровье и ещё нельзя лечиться более двух раз имей ввиду говорю один раз!)\n"))
+                '''Переходим к проверке выбора.'''
                 if choice == 1:
                     player.attack(monster, player)
                 elif choice == 2:
                     player.healing(count_player, test_player, player, player)
+                # Опять обрабатываем ошибки.
                 else:
                     print("Варианта только два!")
                     choice = int(input(
@@ -113,6 +125,7 @@ def game(player, monster, test_player, test_monster):
                         player.attack(monster, player)
                     elif choice == 2:
                         player.healing(count_player, test_player, player, player)
+
             else:
                 print("Вы будете вытягивать жребий...")
                 time.sleep(0.5)
@@ -122,12 +135,16 @@ def game(player, monster, test_player, test_monster):
                 time.sleep(0.5)
                 print("3...")
                 print(f"Вы не вытянули жребий. Ход: {monster.name}")
-                choice = random.randint(1, 2)
+                choice = random.randint(1, 2)  # Для монстра выбор случайный!
                 if choice == 1:
                     monster.attack(player, monster)
                 else:
                     monster.healing(count_monster, test_monster, monster, player)
+
         chance_func()
+
+
+'''Обрабатываем полледние данные и выводим результат игры.'''
 
 
 def finish(monster, player):
@@ -140,6 +157,7 @@ def finish(monster, player):
 
     else:
         print("Вы проиграли. В следующий раз повезёт!")
+
 
 asking()
 game(player, monster, test_player, test_monster)
