@@ -172,6 +172,7 @@ def finish(monster, player):
 
     else:
         print("Вы проиграли. В следующий раз повезёт!")
+    input()
 
 
 welcome()
