@@ -67,8 +67,26 @@ def alias_gen(f_name: str, l_name: str) -> str:
             that why there is the syntax_error here.'''
         return FIRST_NAME[f_name[0].upper()] + ' ' + SURNAME[l_name[0].upper()]
 
+
+def sum_of_integers_in_string(s: str) -> int:
+    var_str = ''
+    output_array = []
+    for i in s:
+        if i.isdigit():
+            var_str += i
+        else:
+            var_str += '_'
+
+    var_list = var_str.split('_')
+    for i in range(len(var_list)):
+        if var_list[i] != '':
+            output_array.append(var_list[i])
+
+    return sum(list(map(int, output_array)))
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
 # print(is_square(26))
 # print(likes(['Alex', 'Jacob', 'Mark', 'Max']))
+# print(sum_of_integers_in_string("2 + 3 = "))
