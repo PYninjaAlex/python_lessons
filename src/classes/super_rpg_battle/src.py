@@ -17,10 +17,10 @@ class Creature:
     power_attack: int
     heal_player: int
 
-    def attack(self, enemy, player):
+    def attack(self, enemy):
         '''Персонаж атакует.'''
         print(f'Количество здоровья {enemy.name} до удара: {enemy.hp}')
-        print(f"{player.name} атакует!")
+        print(f"{self.name} атакует!")
         enemy.hp -= self.power_attack
         time.sleep(2)
         print(f'Количество здоровья {enemy.name} после удара: {enemy.hp}')
@@ -68,6 +68,7 @@ class Monster(Creature):
         В разработке...'''
     pass
 
+
 def welcome():
     '''Функция добро пожаловать.'''
     print("Добро пожаловать в игру!")
@@ -82,6 +83,7 @@ def welcome():
     time.sleep(0.5)
     print("К бою!")
     time.sleep(1)
+
 
 name_player = input("Как тебя зовут? ")  # Имя героя
 player = Hero(name_player, random.randint(40, 50), 10, 10)  # Создаём игрока
@@ -128,7 +130,7 @@ def game(player, monster, test_player, test_monster):
                         "Что вы хотите сделать?\t\n1.Атакавать\n2.Лечиться (не стоит лечиться если у вас и так полное здоровье и ещё нельзя лечиться более двух раз имей ввиду говорю один раз!)\n"))
                 '''Переходим к проверке выбора.'''
                 if choice == 1:
-                    player.attack(monster, player)
+                    player.attack(monster)
                 elif choice == 2:
                     player.healing(count_player, test_player, player, player)
                 # Опять обрабатываем ошибки.
@@ -137,7 +139,7 @@ def game(player, monster, test_player, test_monster):
                     choice = int(input(
                         "Что вы хотите сделать?\t\n1.Атакавать\n2.Лечиться (не стоит лечиться если у вас и так полное здоровье и ещё нельзя лечиться более двух раз имей ввиду говорю один раз!)\n"))
                     if choice == 1:
-                        player.attack(monster, player)
+                        player.attack(monster)
                     elif choice == 2:
                         player.healing(count_player, test_player, player, player)
 
@@ -152,14 +154,14 @@ def game(player, monster, test_player, test_monster):
                 print(f"Вы не вытянули жребий. Ход: {monster.name}")
                 choice = random.randint(1, 2)  # Для монстра выбор случайный!
                 if choice == 1:
-                    monster.attack(player, monster)
+                    monster.attack(player)
                 else:
                     monster.healing(count_monster, test_monster, monster, player)
 
         chance_func()
 
 
-'''Обрабатываем полледние данные и выводим результат игры.'''
+'''Обрабатываем последние данные и выводим результат игры.'''
 
 
 def finish(monster, player):

@@ -84,9 +84,21 @@ def sum_of_integers_in_string(s: str) -> int:
 
     return sum(list(map(int, output_array)))
 
+
+def multiplication_table(size):
+    output = []
+    var = []
+    for i in range(1, size + 1):
+        for j in range(1, size + 1):
+            var.append(i * j)
+        output.extend([var])
+        var = []
+    return output
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
 # print(is_square(26))
 # print(likes(['Alex', 'Jacob', 'Mark', 'Max']))
 # print(sum_of_integers_in_string("2 + 3 = "))
+# print(multiplication_table(3))
