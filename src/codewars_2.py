@@ -1,3 +1,4 @@
+import math
 from math import sqrt
 
 
@@ -95,6 +96,33 @@ def multiplication_table(size):
         var = []
     return output
 
+
+def strings_construction(A: str, B: str) -> int:
+    testing = {}
+    if set(A) == set(B):
+        return len(B) // len(A)
+    a_list = [x for x in A]
+    for i in B:
+        if i in a_list and i not in testing:
+            testing[i] = A.count(i)
+        elif i in testing:
+            testing[i] += 1
+    return min(testing.values()) if testing else 0
+
+
+def mygcd(x: int, y: int) -> int:
+    return math.gcd(x, y)
+
+
+def second_symbol(s: str, symbol: str) -> int:
+    s_list = [x for x in s]
+    if s_list.count(symbol) == 1 or not s.count(symbol):
+        return -1
+    else:
+        s_list.remove(symbol)
+        return s_list.index(symbol) + 1
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -102,3 +130,6 @@ def multiplication_table(size):
 # print(likes(['Alex', 'Jacob', 'Mark', 'Max']))
 # print(sum_of_integers_in_string("2 + 3 = "))
 # print(multiplication_table(3))
+# print(strings_construction("zzz","zzzzzzzzzzz"))
+# print(mygcd(30, 12))
+# print(second_symbol('Hello world!!!', 'l'))
