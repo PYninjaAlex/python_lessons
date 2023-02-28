@@ -48,7 +48,7 @@ def is_square(n: int) -> True or False:
 
 
 def likes(names: list) -> str:
-    if names == []:
+    if not names:
         return 'no one likes this'
     elif len(names) == 1:
         return f'{names[0]} likes this'
@@ -86,7 +86,7 @@ def sum_of_integers_in_string(s: str) -> int:
     return sum(list(map(int, output_array)))
 
 
-def multiplication_table(size):
+def multiplication_table(size: int) -> list[list[int]]:
     output = []
     var = []
     for i in range(1, size + 1):
@@ -131,5 +131,5 @@ def second_symbol(s: str, symbol: str) -> int:
 # print(sum_of_integers_in_string("2 + 3 = "))
 # print(multiplication_table(3))
 # print(strings_construction("zzz","zzzzzzzzzzz"))
-# print(mygcd(30, 12))
+# print(my-gcd(30, 12))
 # print(second_symbol('Hello world!!!', 'l'))
