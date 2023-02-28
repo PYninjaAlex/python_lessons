@@ -3,3 +3,4 @@
 !.idea/.gitignore
 /shelf/
 /workspace.xml
+../src/.env
