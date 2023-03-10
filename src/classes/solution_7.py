@@ -1,4 +1,4 @@
-def menu(menu_: dict[list], allergy: str) -> dict:
+def menu(menu_: dict[str, list[str]], allergy: str) -> dict:
     output_dict = {}
     for i in menu_:
         output_dict[i] = []
