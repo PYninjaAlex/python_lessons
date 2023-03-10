@@ -123,6 +123,14 @@ def second_symbol(s: str, symbol: str) -> int:
         return s_list.index(symbol) + 1
 
 
+def is_merge(s: str, part1: str, part2: str) -> bool:
+    for i in s:
+        if i in part1 or i in part2:
+            continue
+        else:
+            return False
+    return True
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -133,3 +141,4 @@ def second_symbol(s: str, symbol: str) -> int:
 # print(strings_construction("zzz","zzzzzzzzzzz"))
 # print(my-gcd(30, 12))
 # print(second_symbol('Hello world!!!', 'l'))
+# print(is_merge('codewars', 'code', 'wars'))
