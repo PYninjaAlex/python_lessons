@@ -131,6 +131,37 @@ def is_merge(s: str, part1: str, part2: str) -> bool:
             return False
     return True
 
+
+def product_array(numbers: list[int]) -> list[int]:
+    output = []
+    for i in range(len(numbers)):
+        var = 1
+        for j in range(len(numbers)):
+            if j == i:
+                continue
+            var *= numbers[j]
+        output.append(var)
+    return output
+
+
+def computer_to_phone(numbers):
+    output = ""
+    key_dict = {
+        "7": "1",
+        "8": "2",
+        "9": "3",
+        "1": "7",
+        "2": "8",
+        "3": "9",
+    }
+    for i in numbers:
+        if i not in key_dict:
+            output += i
+        else:
+            output += key_dict[i]
+    return output
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -142,3 +173,4 @@ def is_merge(s: str, part1: str, part2: str) -> bool:
 # print(my-gcd(30, 12))
 # print(second_symbol('Hello world!!!', 'l'))
 # print(is_merge('codewars', 'code', 'wars'))
+print(product_array([12, 20]))
