@@ -1,5 +1,4 @@
 import math
-from math import sqrt
 
 
 def trim(phrase, size):
@@ -39,7 +38,7 @@ def is_square(n: int) -> True or False:
     if n >= 0:
         if n == 0:
             return True
-        elif sqrt(n) == int(sqrt(n)):
+        elif math.sqrt(n) == int(math.sqrt(n)):
             return True
         else:
             return False
@@ -144,7 +143,7 @@ def product_array(numbers: list[int]) -> list[int]:
     return output
 
 
-def computer_to_phone(numbers):
+def computer_to_phone(numbers: str) -> str:
     output = ""
     key_dict = {
         "7": "1",
@@ -162,6 +161,21 @@ def computer_to_phone(numbers):
     return output
 
 
+def hyper_fact(num: int) -> int:
+    if num != 1:
+        return (num ** num * hyper_fact(num - 1)) % 1000000007
+    return 1
+
+
+def div_con(x: list[int, str]) -> int:
+    num = 0
+    for i in x:
+        if type(i) == str:
+            num -= int(i)
+        else:
+            num += i
+    return num
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -173,4 +187,6 @@ def computer_to_phone(numbers):
 # print(my-gcd(30, 12))
 # print(second_symbol('Hello world!!!', 'l'))
 # print(is_merge('codewars', 'code', 'wars'))
-print(product_array([12, 20]))
+# print(product_array([12, 20]))
+# print(computer_to_phone('1234567890'))
+# print(hyper_fact(5))
