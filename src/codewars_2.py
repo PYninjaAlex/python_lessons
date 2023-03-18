@@ -1,4 +1,5 @@
 import math
+from functools import cmp_to_key
 
 
 def trim(phrase, size):
@@ -176,6 +177,19 @@ def div_con(x: list[int, str]) -> int:
             num += i
     return num
 
+
+def next_bigger(n: int) -> int:
+    if n < 10:
+        return -1
+    output = ''
+    list_n = sorted(list(map(int, list(str(n)))), key=cmp_to_key(lambda x, y: y-x))
+    for i in list_n:
+        output += str(i)
+    if int(output) == n:
+        return -1
+    return int(output)
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -190,3 +204,4 @@ def div_con(x: list[int, str]) -> int:
 # print(product_array([12, 20]))
 # print(computer_to_phone('1234567890'))
 # print(hyper_fact(5))
+# print(next_bigger(12))
