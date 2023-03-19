@@ -182,13 +182,27 @@ def next_bigger(n: int) -> int:
     if n < 10:
         return -1
     output = ''
-    list_n = sorted(list(map(int, list(str(n)))), key=cmp_to_key(lambda x, y: y-x))
+    list_n = sorted(list(map(int, list(str(n)))), key=cmp_to_key(lambda x, y: y - x))
     for i in list_n:
         output += str(i)
     if int(output) == n:
         return -1
     return int(output)
 
+
+x = 1
+
+
+class DivideStatic:
+
+    @staticmethod
+    def get_number():
+        global x
+        x *= 2
+        if x // 2 == 1:
+            return 1
+        else:
+            return x // 2
 
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
@@ -205,3 +219,7 @@ def next_bigger(n: int) -> int:
 # print(computer_to_phone('1234567890'))
 # print(hyper_fact(5))
 # print(next_bigger(12))
+# print(DivideStatic.get_number())
+# print(DivideStatic.get_number())
+# print(DivideStatic.get_number())
+# print(DivideStatic.get_number())
