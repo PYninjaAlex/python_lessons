@@ -190,19 +190,16 @@ def next_bigger(n: int) -> int:
     return int(output)
 
 
-x = 1
-
-
 class DivideStatic:
+    _x = 0.5
 
     @staticmethod
     def get_number():
-        global x
-        x *= 2
-        if x // 2 == 1:
+        DivideStatic._x *= 2
+        if DivideStatic._x == 1:
             return 1
-        else:
-            return x // 2
+        return int(DivideStatic._x)
+
 
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
