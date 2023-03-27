@@ -1,5 +1,6 @@
 import math
 from functools import cmp_to_key
+from copy import deepcopy
 
 
 def trim(phrase, size):
@@ -201,6 +202,32 @@ class DivideStatic:
         return int(DivideStatic._x)
 
 
+def determinant(matrix: list[list[int]]) -> int:
+    if len(matrix) == 1:
+        return matrix[0][0]
+    if len(matrix) == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    if len(matrix) >= 3:
+        count = 0
+        minor = matrix[0]
+        for i in range(len(matrix[0])):
+            matrix_little = []
+            matrix.pop(0)
+            for j in matrix:
+                var = deepcopy(j)
+                var.pop(i)
+                matrix_little.append(var)
+            if i == 0:
+                count += minor[i] * determinant(matrix_little)
+            elif i % 2 == 0:
+                count += minor[i] * determinant(matrix_little)
+            else:
+                count -= minor[i] * determinant(matrix_little)
+            matrix_little.clear()
+            matrix.insert(0, minor)
+        return count
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -220,3 +247,4 @@ class DivideStatic:
 # print(DivideStatic.get_number())
 # print(DivideStatic.get_number())
 # print(DivideStatic.get_number())
+# print(determinant([[2, 4, 2], [3, 1, 1], [1, 2, 0]]))
