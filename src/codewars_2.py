@@ -228,6 +228,28 @@ def determinant(matrix: list[list[int]]) -> int:
         return count
 
 
+def char_to_ascii(s: str) -> dict or None:
+    if not s:
+        return
+    output = {}
+    for i in s.replace(' ', ''):
+        if not output.get(i) and i.isalpha():
+            output[i] = ord(i)
+    return output
+
+
+def flip(d: str, array: list[int]) -> list:
+    if len(array) < 2:
+        return array
+    pivot = array[0]
+    less = [i for i in array[1:] if i <= pivot]
+    greater = [i for i in array[1:] if i > pivot]
+    if d == "R":
+        return flip(d, less) + [pivot] + flip(d, greater)
+    else:
+        return flip(d, greater) + [pivot] + flip(d, less)
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -248,3 +270,5 @@ def determinant(matrix: list[list[int]]) -> int:
 # print(DivideStatic.get_number())
 # print(DivideStatic.get_number())
 # print(determinant([[2, 4, 2], [3, 1, 1], [1, 2, 0]]))
+# print(char_to_ascii("Hello, boys!"))
+# print(flip('L', [3, 2, 1, 2]))
