@@ -1,4 +1,5 @@
 # Default ignored files
-/.idea/
+/.idea
 /src/classes/.env
 /src/classes/super_rpg_battle/__pycache__
+/venv
