@@ -1,6 +1,7 @@
 import math
 from functools import cmp_to_key
 from copy import deepcopy
+from collections import Counter
 
 
 def trim(phrase, size):
@@ -250,6 +251,59 @@ def flip(d: str, array: list[int]) -> list:
         return flip(d, greater) + [pivot] + flip(d, less)
 
 
+def solve(input_string: str) -> str:
+    result = []
+    split_str = input_string.split("\n")
+    for i in split_str:
+        i_result = 0
+        back = 0
+        split_i = i.split()
+        for j in range(len(split_i[0]) - 1, -1, -1):
+            if int(split_i[0][j]) + int(split_i[1][j]) + back >= 10:
+                i_result += 1
+                back += (int(split_i[0][j]) + int(split_i[1][j])) // 10
+        if back == 0:
+            result.append(f"No carry operation")
+        else:
+            result.append(f"{i_result} carry operations")
+    return "\n".join(result)
+
+
+def thin_or_fat(matrix):
+    width = sum([math.sqrt(sum(x)) for x in matrix])
+    height = []
+    j = 0
+    height_x = []
+    for i in range(len(matrix)):
+        # TODO: all
+        height_x.append(matrix[i][j])
+
+    return width, height
+
+
+def find_it(seq):
+    times = {}
+    for i in seq:
+        if times.get(i):
+            times[i] += 1
+        else:
+            times[i] = 1
+    value = list(filter(lambda x: x % 2 == 1, times.values()))[0]
+    for x in seq:
+        if times[x] == value:
+            return x
+
+
+def scramble(s1, s2):
+    counter_s1 = Counter(s1)
+    counter_s2 = Counter(s2)
+    for i in counter_s2:
+        if counter_s1[i] >= counter_s2[i]:
+            continue
+        return False
+    return True
+
+
 # print(trim("Hello, world!", 8))
 # print(mango(9, 5))
 # print(unique_in_order("ABBCcA"))
@@ -272,3 +326,7 @@ def flip(d: str, array: list[int]) -> list:
 # print(determinant([[2, 4, 2], [3, 1, 1], [1, 2, 0]]))
 # print(char_to_ascii("Hello, boys!"))
 # print(flip('L', [3, 2, 1, 2]))
+# TODO: print(solve("321 679\n098 805\n123 867"))
+# print(find_it([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]))
+# print(scramble('rkqodlw', 'world'))
+print(thin_or_fat([[1, 3], [5, 7]]))
